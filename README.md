@@ -18,4 +18,4 @@ public:
 return 2;
         
     }
-};©leetcode
+};
