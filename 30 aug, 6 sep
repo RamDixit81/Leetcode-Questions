@@ -31,3 +31,33 @@ public:
             return count;
     }
 };
+# 6 sep 
+class Solution {
+public:
+    int count(string &s, int i){
+        if(i == s.size() -1)
+           return 0;
+
+        if (s[i] == s[i + 1])
+                return 1 + count(s, i +1);
+        return count(s, i + 1);
+        
+    }
+    int rotation(string &s, int k, int start){
+        if(start == s.size())
+           return 0;
+
+        string tmp = s.substr(start) + s.substr(0, start);
+        int ans = 0;
+
+        if(count(tmp, 0) ==k)
+        ans = 1;
+        
+        return ans + rotation(s, k, start + 1);
+        
+    }
+    int countRotations(string s, int k) {
+        return rotation(s, k, 0);
+        
+    }
+};
